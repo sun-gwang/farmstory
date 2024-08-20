@@ -41,7 +41,8 @@
 <h3>
 <details>
   <summary>ERD</summary>
-   ![팜스토리 ERD](https://github.com/user-attachments/assets/8e6ef7bf-dde3-4a13-a155-dfbdd18bfc08)
+<img src="https://github.com/user-attachments/assets/bece5ce9-5292-4ee1-8248-7d9943da307e" alt="ERD" >
+
 </details>
 </h3>
 <br/>
