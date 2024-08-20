@@ -5,8 +5,8 @@
 <img src="https://github.com/user-attachments/assets/e6506e12-7ac9-48ff-b0cb-ac2ec9121c65" alt="Main Image" width="410" height="380">
 
 ## 제작기간
-> ### 2024.04.01 ~ 2024.04.12 (2주)
-
+> ### 2024.04.01 ~ 2024.04.12 (2주)  
+<br/>
 
 ## 프로젝트 개요
 | 항목 | 내용 | 
@@ -15,7 +15,8 @@
 | 참여인원  | 총 5명(Front-End, Back-End 동시 작업)  |
 | 내 담당역할  | 게시판 기능( 글 작성, 글 수정, 파일 업로드, 댓글, 좋아요 ) |
 | 사용자  | 소비자, 판매자, 관리자 |
-
+<br/>
+  
 ## 사용 기술
 ### 1. Front-End
 > HTML
@@ -34,7 +35,16 @@
 > Mybatis  
 
 ### 3. DataBase
-> MySQL
+> MySQL  
+<br/>
+
+<h3>
+<details>
+  <summary>ERD</summary>
+   ![팜스토리 ERD](https://github.com/user-attachments/assets/8e6ef7bf-dde3-4a13-a155-dfbdd18bfc08)
+</details>
+</h3>
+<br/>
 
 ## 구현 기능
 ### 1. 메인페이지
