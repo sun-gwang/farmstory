@@ -1,6 +1,7 @@
 package kr.co.farmstory.repository;
 
 import kr.co.farmstory.entity.Article;
+import kr.co.farmstory.repository.custom.ArticleRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, Integer> {
+public interface ArticleRepository extends JpaRepository<Article, Integer>, ArticleRepositoryCustom {
 
     public List<Article> findCommentByParent(int parent);
 

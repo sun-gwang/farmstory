@@ -1,5 +1,6 @@
 package kr.co.farmstory.service;
 
+import com.querydsl.core.Tuple;
 import kr.co.farmstory.dto.ArticleDTO;
 
 import kr.co.farmstory.dto.FileDTO;
@@ -18,8 +19,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j @RequiredArgsConstructor @Service
 public class ArticleService {
@@ -34,7 +37,23 @@ public class ArticleService {
     private final CropTalkMapper cropTalkMapper;
 
     public List<ArticleDTO> selectArticles(String grp, String cate){
-        return articleMapper.selectArticles(grp, cate);
+        List<Tuple> articles = articleRepository.getArticleList(grp, cate);
+        log.info("서비스 " + articles);
+
+        List<ArticleDTO> result = articles.stream()
+                .map(tuple->{
+                    Article article = tuple.get(0, Article.class);
+                    String nick = tuple.get(1, String.class);
+
+                    ArticleDTO dto = modelMapper.map(article, ArticleDTO.class);
+                    dto.setNick(nick);
+
+                    return dto;
+                })
+                .collect(Collectors.toList());
+        log.info("서비스2 " + result);
+
+        return result;
     }
 
     public List<ArticleDTO>selectArticlesMain(String cate){

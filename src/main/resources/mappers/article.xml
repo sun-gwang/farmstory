@@ -6,21 +6,15 @@
 <mapper namespace="kr.co.farmstory.mapper.ArticleMapper">
 
     <select id="selectArticles" resultType="kr.co.farmstory.dto.ArticleDTO">
-        select a.*, b.nick from `article` AS a JOIN `user` AS b on a.uid = b.uid
+        SELECT a.*, b.nick from article AS a JOIN user AS b on a.uid = b.uid
         <where>
-            <if test="grp == 'croptalk'">a.grp=#{param1}</if>
-            <if test="grp == 'event'">a.grp=#{param1}</if>
-            <if test="grp == 'community'">a.grp=#{param1}</if>
-
-            <if test="cate == 'notice'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'menu'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'chef'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'qna'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'faq'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'event'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'story'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'grow'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
-            <if test="cate == 'school'">AND a.cate=#{param2} and a.parent=0 ORDER BY a.ano DESC</if>
+            <if test="grp != null and grp != ''">
+                a.grp=#{grp}
+            </if>
+            <if test="cate != null and cate != ''">
+                AND a.cate=#{cate}
+            </if>
+            AND a.parent=0
         </where>
 
     </select>

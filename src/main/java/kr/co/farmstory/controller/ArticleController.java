@@ -62,10 +62,9 @@ public class ArticleController {
         PageHelper.startPage(pageNum, pageSize);
 
         List<ArticleDTO> articles = articleService.selectArticles(grp, cate);
+        log.info("여기 @@"+articles);
 
         PageInfo<ArticleDTO> articlesPage = new PageInfo<>(articles);
-
-        log.info(articlesPage.getPages()+"");
 
         int lastPage = (pageNum/11)*10+10;
 

@@ -245,12 +245,7 @@ public class AdminController {
                                   @RequestParam("imgSub2") MultipartFile fileC){
         log.info("productRegister");
         log.info(""+productDTO);
-
-
-
         log.info(""+productDTO);
-
-
 
         List<MultipartFile> files = new ArrayList<>();
         files.add(fileA);
@@ -262,7 +257,7 @@ public class AdminController {
         imgDTO.setPno(productDTO.getPno());
         imgDTO.setFiles(files);
 
-
+        log.info("이미지" + imgDTO);
         imgService.imgUpload(imgDTO, productDTO.getCate());
         Product product = productService.insertProduct(productDTO);
         imgDTO.setPno(product.getPno());
